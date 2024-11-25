@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Ajouter un Joueur</title>
+
+</head>
+
+<body>
+
+
+<div class="parent">
+    <main>
+<div>
+    <h2 class="titre-List">Squad builder</h2>
+</div>
+        <div class="Liste">
+           <span>
+            <img src="./assets/img/télécharger.svg" alt="" >
+           </span>
+        </div>
+        <div class="cardrush1">
+            <button>
+                <img src="/assets/img/badge_total_rush.webp" alt="">
+            </button>
+        </div>
+    </main>
+
+
+    <aside>
+        <div id="form-group1" class="form-group formation">
+            <label for="Formation">Formation</label>
+            <select name="Formation" id="formation">
+                <option value="4-3-3">4-3-3</option>
+                <option value="4-3-3">4-4-2</option>
+            </select>
+        </div>
+        <button class="btn">Ajouter un Joueur</button>
+        <button class="btn-cancel">Cancel</button>
+        <div class="nonn">
+
+            
+
+            <form id="addPlayerForm">
+
+                <div class="form-group">
+                    <label for="Name-player">Nom du Joueur</label>
+                    <input type="text" id="playerName" placeholder="Ex : Lionel Messi" required>
+                </div>
+                <div class="form-group">
+                    <label for="Name-player">photo du Joueur</label>
+                    <input type="file" accept="image/*" id="playerName" name="image" required>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="playerPosition">Position</label>
+                    <select id="Position-player" required>
+                        <option value="">-- position --</option>
+                        <option value="GK">Gardien (GK)</option>
+                        <option value="CB">Défenseur Central (CB)</option>
+                        <option value="LB">Latéral Gauche (LB)</option>
+                        <option value="RB">Latéral Droit (RB)</option>
+                        <option value="CM">Milieu Central (CM)</option>
+                        <option value="LW">Ailier Gauche (LW)</option>
+                        <option value="RW">Ailier Droit (RW)</option>
+                        <option value="ST">Attaquant (ST)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="playerPosition">Nationality</label>
+                    <select id="nationality-player" required>
+                        <option value="">-- Nationality --</option>
+                        <option value="Morocco">Morocco</option>
+                        <option value="Brazil">Brazil</option>
+                        <option value="Argentine">Argentine</option>
+                        <option value="Canada">Canada</option>
+                        <option value="Portugal">Portugal</option>
+                        <option value="England">England</option>
+                        <option value="France">France</option>
+                        <option value="Croatia">Croatia</option>
+                        <option value="Germany">Germany</option>
+                        <option value="Egybt">Egybt</option>
+                        <option value="Netherland">Netherland</option>
+                        <option value="Belgium">Belgium</option>
+                        <option value="spain">spain</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="Name-player">Flag</label>
+                    <input type="file" accept="image/*" id="flag" name="image" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="playerPosition">Club</label>
+                    <select id="nationality-player" required>
+                        <option value="">-- Club --</option>
+                        <option value="Fc Barcelona">Fc Barcelona</option>
+                        <option value="Inter Miami ">Inter Miami </option>
+                        <option value="Paris Saint-Germain">Paris Saint-Germain</option>
+                        <option value="PSV">PSV</option>
+                        <option value="Manchester United">Manchester United</option>
+                        <option value="Fenerbahçe">Fenerbahçe</option>
+                        <option value="Liverpool">Liverpool</option>
+                        <option value="Al-Hilal">Al-Hilal</option>
+                        <option value="Bayern Munich">Bayern Munich</option>
+                        <option value="Al-Ittihad">Al-Ittihad</option>
+                        <option value="Manchester City">Manchester City</option>
+                        <option value="Real Madrid">Real Madrid</option>
+                        <option value="Atletico Madrid">Atletico Madrid</option>
+                        <option value="Al Nassr ">Al Nassr </option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="Note-player">Rating</label>
+                    <input type="number" id="Note-player" placeholder="Ex : 85" min="1" max="100" required>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="statique-player">Statistiques</label>
+                    <div>
+
+                        <input type="number" id="pace" placeholder="pace" min="1" max="99" required>
+                        <input type="number" id="shooting" placeholder="shooting" min="1" max="99" required>
+                        <input type="number" id="passing" placeholder="passing" min="1" max="99" required>
+                        <input type="number" id="dribbling" placeholder="dribbling" min="1" max="99" required>
+                        <input type="number" id="defending" placeholder="defending" min="1" max="99" required>
+                        <input type="number" id="physical" placeholder="physical" min="1" max="99" required>
+                    </div>
+                    <br>
+                    <label for="statique-player">Statique Pour Gardien</label>
+                    <div class="form-group">
+                        <input type="number" id="diving" placeholder="diving" min="1" max="99" required>
+                        <input type="number" id="handling" placeholder="handling" min="1" max="99" required>
+                        <input type="number" id="kicking" placeholder="kicking" min="1" max="99" required>
+                        <input type="number" id="reflexes" placeholder="reflexes" min="1" max="99" required>
+                        <input type="number" id="speed" placeholder="speed" min="1" max="99" required>
+                        <input type="number" id="positioning" placeholder="positioning" min="1" max="99" required>
+                    </div>
+                </div>
+
+
+                <button type="submit">Ajouter le Joueur</button>
+            </form>
+           
+        </div>
+    </aside>
+
+</div>
+
+
+    <script src="./assets/js/script.js">
+
+    </script>
+
+</body>
+
+</html>
