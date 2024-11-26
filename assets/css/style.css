@@ -10,17 +10,20 @@ body {
 
 
   display: flex;
+  flex-direction: row;
   justify-content: space-evenly;
-  flex-wrap: wrap;
+  gap: 2rem;
+  
 }
+
 
 /*pour squad builder */
 
 .Liste {
   position: relative;
   top: 5rem;
-  width: 100%;
-  height: 100%;
+  width: auto;
+  height:auto;
 
 }
 
@@ -52,9 +55,7 @@ form {
 }
 
 
-.form-group {
-  margin-bottom: 15px;
-}
+
 
 label {
   display: block;
@@ -103,7 +104,12 @@ aside {
 
 
 }
-
+main {
+  position: relative;
+  height: 100vh; 
+  width: auto;
+  
+}
 /*pour button cancel*/
 .btn-cancel {
   display: none;
@@ -132,4 +138,449 @@ aside {
 }
 
 /*grid layout pour les carte */
-.cardrush1 {}
+
+ .container-card{
+  position: relative;
+  bottom:105%;
+  left:4rem;
+ }
+
+#imgHightWith{
+  width: 15vh;
+  height: 8rem;
+}
+ .Attaquant{
+  display: grid;
+   grid-template-columns:repeat(3,1fr);
+   justify-content: space-between;
+
+  position: relative;
+  top: 5rem;
+  left: 1rem;
+  
+   
+   
+ }
+ .cardrush2{
+  position: relative;
+  margin-top: 2rem;
+ }
+ .Milieu{
+  display: grid;
+   grid-template-columns:repeat(3,1fr);
+  
+   
+ position: relative;
+ 
+ left: 1rem;
+
+ }
+ .cardrush5{
+  position: relative;
+ top: 3rem;
+ }
+ .Defenseur{
+  display: grid;
+   grid-template-columns:repeat(4,1fr);
+
+   
+   position: relative;
+  
+  right: 1rem;
+ }
+ .cardrush8{
+  
+  position: relative;
+  top: 3rem;
+ }
+ .cardrush9{
+  position: relative;
+  top: 3rem;
+ }
+ .goalkeeper{
+  width:14%;
+  display: grid;
+  place-items: center; 
+  height:10vh; 
+  
+  position: relative;
+  left: 20rem;
+  
+
+  
+ }
+ 
+ #buttonKeeper{
+  width: 18vh;
+  height: 19vh;
+  padding: auto;
+}
+ /* information des joueurs*/
+
+ /*premierment GK*/
+ .flagGK{
+       
+  background-color: aqua;
+  width: 6vh;
+  height: 1.5vh;
+}
+
+.info-joueur-comple-GK{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  position: relative;
+  bottom: 8.3rem;
+}
+.nameGK{
+  color: white;
+  font-size:0.8rem;
+}
+.info-joueurGK{
+  display: flex;
+  flex-direction:row;
+  gap: 00.2rem;
+color: aliceblue;
+ font-size: 0.3rem;
+}
+.statiqueValueGK{
+  display: flex;
+  flex-direction:row;
+  gap:0.5rem ;
+  color: rgb(201, 250, 148);
+font-size: 0.3rem;
+}
+.imgGK{
+  background: #c4bcbc;
+  width: 3rem;
+  height: 2.8rem;
+  border-radius: 0.2rem;
+}
+.GK{
+  display: flex;
+  flex-direction: column;
+  color: white;
+  position: relative;
+  bottom: 6.5rem;
+  right: 2.2rem;
+  font-size: 0.6rem;
+}
+.valuePositionGK{
+  font-size:0.5rem ;
+  position: relative;
+  left: 0.05rem;
+}
+
+/*pour les defenseur  RB CB CB LB*/
+.flagRB,.flagCB1,.flagCB2,.flagLB{
+       
+  background-color: aqua;
+  width: 6vh;
+  height: 1.5vh;
+}
+
+.info-joueur-comple-RB,.info-joueur-comple-CB1,.info-joueur-comple-CB2,.info-joueur-comple-LB{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  position: relative;
+  bottom: 8.3rem;
+}
+.nameRB,.nameCB1,.nameCB2,.nameLB{
+  color: white;
+  font-size:0.8rem;
+}
+.info-joueurRB,.info-joueurCB1,.info-joueurCB2,.info-joueurLB{
+  display: flex;
+  flex-direction:row;
+  gap: 00.2rem;
+color: aliceblue;
+ font-size: 0.3rem;
+}
+.statiqueValueRB,.statiqueValueCB1,.statiqueValueCB2,.statiqueValueLB{
+  display: flex;
+  flex-direction:row;
+  gap:0.5rem ;
+  color: rgb(201, 250, 148);
+font-size: 0.3rem;
+}
+.imgRB, .imgCB1, .imgCB2, .imgLB{
+  background: #c4bcbc;
+  width: 3rem;
+  height: 2.8rem;
+  border-radius: 0.2rem;
+}
+.RB, .CB1, .CB2, .LB{
+  display: flex;
+  flex-direction: column;
+  color: white;
+  position: relative;
+  bottom: 6.5rem;
+  right: 2.2rem;
+  font-size: 0.6rem;
+}
+.valuePositionRB, .valuePositionCB1,.valuePositionCB2,.valuePositionLB{
+  font-size:0.5rem ;
+  position: relative;
+  left: 0.05rem;
+}
+
+
+/*pour les Milieu MR CM ML*/
+.flagCM,.flagML,.flagMR{
+       
+  background-color: aqua;
+  width: 6vh;
+  height: 1.5vh;
+}
+
+.info-joueur-comple-CM,.info-joueur-comple-ML,.info-joueur-comple-MR{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  position: relative;
+  bottom: 8.3rem;
+}
+.nameCM,.nameML,.nameMR{
+  color: white;
+  font-size:0.8rem;
+}
+.info-joueurCM,.info-joueurML,.info-joueurMR{
+  display: flex;
+  flex-direction:row;
+  gap: 00.2rem;
+color: aliceblue;
+ font-size: 0.3rem;
+}
+.statiqueValueCM,.statiqueValueML,.statiqueValueMR{
+  display: flex;
+  flex-direction:row;
+  gap:0.5rem ;
+  color: rgb(201, 250, 148);
+font-size: 0.3rem;
+}
+.imgCM, .imgML, .imgMR{
+  background: #c4bcbc;
+  width: 3rem;
+  height: 2.8rem;
+  border-radius: 0.2rem;
+}
+.CM, .ML, .MR{
+  display: flex;
+  flex-direction: column;
+  color: white;
+  position: relative;
+  bottom: 6.5rem;
+  right: 2.2rem;
+  font-size: 0.6rem;
+}
+.valuePositionCM, .valuePositionML,.valuePositionMR{
+  font-size:0.5rem ;
+  position: relative;
+  left: 0.05rem;
+}
+/*por les attaquant  LR SA LW*/
+.flagRW,.flagSA,.flagLW{
+       
+  background-color: aqua;
+  width: 6vh;
+  height: 1.5vh;
+}
+
+.info-joueur-comple-RW,.info-joueur-comple-SA,.info-joueur-comple-LW{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  position: relative;
+  bottom: 8.3rem;
+}
+.nameRW,.nameSA,.nameLW{
+  color: white;
+  font-size:0.8rem;
+}
+.info-joueurRW,.info-joueurSA,.info-joueurLW{
+  display: flex;
+  flex-direction:row;
+  gap: 00.2rem;
+color: aliceblue;
+ font-size: 0.3rem;
+}
+.statiqueValueRW,.statiqueValueSA,.statiqueValueLW{
+  display: flex;
+  flex-direction:row;
+  gap:0.5rem ;
+  color: rgb(201, 250, 148);
+font-size: 0.3rem;
+}
+.imgRW, .imgSA, .imgLW{
+  background: #c4bcbc;
+  width: 3rem;
+  height: 2.8rem;
+  border-radius: 0.2rem;
+}
+.RW, .SA, .LW{
+  display: flex;
+  flex-direction: column;
+  color: white;
+  position: relative;
+  bottom: 6.5rem;
+  right: 2.2rem;
+  font-size: 0.6rem;
+}
+.valuePositionRW, .valuePositionSA,.valuePositionLW{
+  font-size:0.5rem ;
+  position: relative;
+  left: 0.05rem;
+}
+
+/* === Styles par défaut (Desktop) === */
+/* Les styles actuels seront appliqués principalement pour les écrans larges (desktop). */
+
+/* === Pour les tablettes (768px à 1024px) === */
+@media (max-width: 1024px) {
+  #buttonKeeper {
+    width: 15vh;
+    height: 16vh;
+  }
+.container-card{
+  position: relative;
+  bottom:65%;
+  left:1.2rem;
+ }
+ aside{
+  width: 50%;
+  max-height: 50%;
+  position: relative;
+  left:25%;
+ }
+ .parent {
+
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: ;
+  
+}
+  .flagGK, .flagRB, .flagCB1, .flagCB2, .flagLB, 
+  .flagCM, .flagML, .flagMR, 
+  .flagRW, .flagSA, .flagLW {
+    width: 5vh;
+    height: 1.2vh;
+  }
+
+  .info-joueur-comple-GK, .info-joueur-comple-RB, .info-joueur-comple-CB1, .info-joueur-comple-CB2, .info-joueur-comple-LB,
+  .info-joueur-comple-CM, .info-joueur-comple-ML, .info-joueur-comple-MR,
+  .info-joueur-comple-RW, .info-joueur-comple-SA, .info-joueur-comple-LW {
+    gap: 0.15rem;
+    bottom: 6rem; 
+  }
+
+  .imgGK, .imgRB, .imgCB1, .imgCB2, .imgLB, 
+  .imgCM, .imgML, .imgMR, 
+  .imgRW, .imgSA, .imgLW {
+    width: 2.5rem;
+    height: 2.3rem;
+  }
+
+  .nameGK, .nameRB, .nameCB1, .nameCB2, .nameLB,
+  .nameCM, .nameML, .nameMR,
+  .nameRW, .nameSA, .nameLW {
+    font-size: 0.7rem;
+  }
+
+  .valuePositionGK, .valuePositionRB, .valuePositionCB1, .valuePositionCB2, .valuePositionLB,
+  .valuePositionCM, .valuePositionML, .valuePositionMR,
+  .valuePositionRW, .valuePositionSA, .valuePositionLW {
+    font-size: 0.4rem;
+  }
+}
+
+/* === Pour les smartphones (480px à 768px) === */
+@media (max-width: 768px) {
+  #buttonKeeper {
+    width: 12vh;
+    height: 14vh;
+  }
+
+  .flagGK, .flagRB, .flagCB1, .flagCB2, .flagLB, 
+  .flagCM, .flagML, .flagMR, 
+  .flagRW, .flagSA, .flagLW {
+    width: 4vh;
+    height: 1vh;
+  }
+
+  .info-joueur-comple-GK, .info-joueur-comple-RB, .info-joueur-comple-CB1, .info-joueur-comple-CB2, .info-joueur-comple-LB,
+  .info-joueur-comple-CM, .info-joueur-comple-ML, .info-joueur-comple-MR,
+  .info-joueur-comple-RW, .info-joueur-comple-SA, .info-joueur-comple-LW {
+    gap: 0.1rem;
+    bottom: 5rem; 
+  }
+
+  .imgGK, .imgRB, .imgCB1, .imgCB2, .imgLB, 
+  .imgCM, .imgML, .imgMR, 
+  .imgRW, .imgSA, .imgLW {
+    width: 2rem;
+    height: 1.8rem;
+  }
+
+  .nameGK, .nameRB, .nameCB1, .nameCB2, .nameLB,
+  .nameCM, .nameML, .nameMR,
+  .nameRW, .nameSA, .nameLW {
+    font-size: 0.6rem;
+  }
+
+  .valuePositionGK, .valuePositionRB, .valuePositionCB1, .valuePositionCB2, .valuePositionLB,
+  .valuePositionCM, .valuePositionML, .valuePositionMR,
+  .valuePositionRW, .valuePositionSA, .valuePositionLW {
+    font-size: 0.3rem;
+  }
+}
+
+/* === Pour les petits smartphones (moins de 480px) === */
+@media (max-width: 480px) {
+  #buttonKeeper {
+    width: 10vh;
+    height: 12vh;
+  }
+
+  .flagGK, .flagRB, .flagCB1, .flagCB2, .flagLB, 
+  .flagCM, .flagML, .flagMR, 
+  .flagRW, .flagSA, .flagLW {
+    width: 3vh;
+    height: 0.8vh;
+  }
+
+  .info-joueur-comple-GK, .info-joueur-comple-RB, .info-joueur-comple-CB1, .info-joueur-comple-CB2, .info-joueur-comple-LB,
+  .info-joueur-comple-CM, .info-joueur-comple-ML, .info-joueur-comple-MR,
+  .info-joueur-comple-RW, .info-joueur-comple-SA, .info-joueur-comple-LW {
+    gap: 0.05rem;
+    bottom: 4rem; 
+  }
+
+  .imgGK, .imgRB, .imgCB1, .imgCB2, .imgLB, 
+  .imgCM, .imgML, .imgMR, 
+  .imgRW, .imgSA, .imgLW {
+    width: 1.8rem;
+    height: 1.6rem;
+  }
+
+  .nameGK, .nameRB, .nameCB1, .nameCB2, .nameLB,
+  .nameCM, .nameML, .nameMR,
+  .nameRW, .nameSA, .nameLW {
+    font-size: 0.5rem;
+  }
+
+  .valuePositionGK, .valuePositionRB, .valuePositionCB1, .valuePositionCB2, .valuePositionLB,
+  .valuePositionCM, .valuePositionML, .valuePositionMR,
+  .valuePositionRW, .valuePositionSA, .valuePositionLW {
+    font-size: 0.25rem;
+  }
+}
+
+
+
