@@ -71,7 +71,7 @@ input {
 
 input[type=url] {
   color: aliceblue;
-  margin-top: ;
+  
 
 }
 
@@ -143,12 +143,9 @@ main {
 /*grid layout pour les carte */
 
  .container-card{
- background: url(/assets/img/télécharger.svg);
+ background: url(../img/télécharger.svg);
  background-repeat:no-repeat;
 height: 100%;
-
-
-
  
  }
 
@@ -270,7 +267,7 @@ color: aliceblue;
   flex-direction:row;
   gap:0.5rem ;
   color: white;
-  width: ;
+  
 font-size: 0.3rem;
 }
 .imgGK{
