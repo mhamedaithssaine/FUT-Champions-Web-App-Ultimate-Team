@@ -40,7 +40,7 @@ body {
 
 
 form {
-
+  
   padding: 20px;
   border: 1px solid #002e18;
   border-radius: 5px;
@@ -69,8 +69,9 @@ input {
   margin: 5px;
 }
 
-input[type=file] {
+input[type=url] {
   color: aliceblue;
+  margin-top: ;
 
 }
 
@@ -268,7 +269,8 @@ color: aliceblue;
   display: flex;
   flex-direction:row;
   gap:0.5rem ;
-  color: rgb(201, 250, 148);
+  color: white;
+  width: ;
 font-size: 0.3rem;
 }
 .imgGK{
@@ -323,7 +325,7 @@ color: aliceblue;
   display: flex;
   flex-direction:row;
   gap:0.5rem ;
-  color: rgb(201, 250, 148);
+  color: white;
 font-size: 0.3rem;
 }
 .imgRB, .imgCB1, .imgCB2, .imgLB{
@@ -379,7 +381,7 @@ color: aliceblue;
   display: flex;
   flex-direction:row;
   gap:0.5rem ;
-  color: rgb(201, 250, 148);
+  color: white;
 font-size: 0.3rem;
 }
 .imgCM, .imgML, .imgMR{
@@ -433,7 +435,7 @@ color: aliceblue;
   display: flex;
   flex-direction:row;
   gap:0.5rem ;
-  color: rgb(201, 250, 148);
+  color: white;
 font-size: 0.3rem;
 }
 .imgRW, .imgSA, .imgLW{
