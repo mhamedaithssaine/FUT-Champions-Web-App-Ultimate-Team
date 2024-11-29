@@ -47,8 +47,10 @@ document.getElementById("PositionPlayer").addEventListener("change",function(){
     principalStatique.style.display="block";
   }
 
-  console.log(selectPosition);
+  // console.log(selectPosition);
 });
+
+
 
 
 //fonction pour ajouter un joueur et recuperation des donner 
@@ -99,6 +101,7 @@ function updatePlayerCard() {
       positioning
     }
   };
+  
   localStorage.setItem(`player_${positionPlayer}`, JSON.stringify(lesDonnerDeJoueur))
 
 
@@ -121,7 +124,6 @@ function updatePlayerCard() {
       return;
   }
 
-  // Vérification si la carte existe
   if (!card) {
     console.error("Aucune carte disponible pour cette position !");
     return;
@@ -133,19 +135,22 @@ function updatePlayerCard() {
   card.querySelector('.valuePositionGK, .valuePositionRB, .valuePositionCB1, .valuePositionCB2, .valuePositionLB, .valuePositionCM, .valuePositionMR, .valuePositionML, .valuePositionLW, .valuePositionRW, .valuePositionSA').textContent = positionPlayer;
 //photo de joueur
 
-card.querySelector('.imgGK').src = photoPlayer;
+const imgDiv = card.querySelector('.img');
+if (imgDiv) {
+  imgDiv.innerHTML = `<img src="${photoPlayer}" alt="Photo de ${playerName}" style="width: 100%; height: auto;">`;
+}
 
   //flag nationale
   const flagDiv = card.querySelector('.DrapeuNational'); 
   if (flagDiv) {
-    flagDiv.innerHTML = `<img src="${nationalFlag}" alt="Drapeau de ${nationality}" style="width: 100%; height: auto;">`;
+    flagDiv.innerHTML = `<img src="${nationalFlag}" alt="Drapeau de ${nationality}" style="width: 100%; height: 100%;">`;
   }
   
 
   //logo du club
   const logoDiv = card.querySelector('.logoClub'); 
   if (logoDiv) {
-    logoDiv.innerHTML = `<img src="${logoClub}" alt="Logo du club ${club}" style="width: 100%; height: auto;">`;
+    logoDiv.innerHTML = `<img src="${logoClub}" alt="Logo du club ${club}" style="width: 100%; height: 100%;">`;
   }
  
   const statsContainer = card.querySelector('.statiqueValueGK, .statiqueValueRB, .statiqueValueCB1, .statiqueValueCB2, .statiqueValueLB, .statiqueValueCM, .statiqueValueMR, .statiqueValueML, .statiqueValueLW, .statiqueValueRW, .statiqueValueSA');
@@ -170,33 +175,62 @@ card.querySelector('.imgGK').src = photoPlayer;
 
 
 
-
-
 // fonction de validation de formulaire 
 function validationForme(){
 
-  const playerName = document.getElementById('playerName');
-  const photoPlayer = document.getElementById('photoPlayer');
-  const positionPlayer = document.getElementById('PositionPlayer');
-  const nationalityPlayer = document.getElementById('nationalityPlayer');
-  const drapeuNational = document.getElementById('DrapeuNational');
-  const clubPlayer = document.getElementById('clubPlayer');
-  const logoClub = document.getElementById('logoClub');
-  const ratingPlayer = document.getElementById('ratingPlayer');
+  function validation() {
+    let valid = true;
 
-  const pace = document.getElementById('pace');
-  const shooting = document.getElementById('shooting');
-  const passing = document.getElementById('passing');
-  const dribbling = document.getElementById('dribbling');
-  const defending = document.getElementById('defending');
-  const physical = document.getElementById('physical');
+    // Vérification du nom du joueur
+    const playerName = document.getElementById('playerName').value;
+    if (playerName === "") {
+        valid = false;
+        document.getElementById("nameError").classList.remove("hidden");
+    } else {
+        document.getElementById("nameError").classList.add("hidden");
+    }
 
-  const diving = document.getElementById('diving');
-  const handling = document.getElementById('handling');
-  const kicking = document.getElementById('kicking');
-  const reflexes = document.getElementById('reflexes');
-  const speed = document.getElementById('speed');
-  const positioning = document.getElementById('positioning');
+    // Vérification de la photo du joueur
+    const photoPlayer = document.getElementById('photoPlayer').value;
+    if (photoPlayer === "") {
+        valid = false;
+        document.getElementById("photoError").classList.remove("hidden");
+    } else {
+        document.getElementById("photoError").classList.add("hidden");
+    }
+
+    // Vérification de la position du joueur
+    const positionPlayer = document.getElementById('PositionPlayer').value;
+    if (positionPlayer === "") {
+        valid = false;
+        document.getElementById("positionError").classList.remove("hidden");
+    } else {
+        document.getElementById("positionError").classList.add("hidden");
+    }
+
+    // Vérification du club du joueur
+    const clubPlayer = document.getElementById('clubPlayer').value;
+    if (clubPlayer === "") {
+        valid = false;
+        document.getElementById("clubError").classList.remove("hidden");
+    } else {
+        document.getElementById("clubError").classList.add("hidden");
+    }
+
+    // Vérification du rating du joueur
+    const ratingPlayer = document.getElementById('ratingPlayer').value;
+    if (ratingPlayer === "" || isNaN(ratingPlayer) || ratingPlayer < 1 || ratingPlayer > 100) {
+        valid = false;
+        document.getElementById("ratingError").classList.remove("hidden");
+    } else {
+        document.getElementById("ratingError").classList.add("hidden");
+    }
+
+    return valid;
+}
+
+ 
+
 
 
 }

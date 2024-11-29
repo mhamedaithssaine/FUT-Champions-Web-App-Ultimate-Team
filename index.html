@@ -31,8 +31,8 @@
                                     <div class="valuePositionLW"></div>
                                 </div>
                                 <div class="info-joueur-comple-LW">
-                                    <div >
-                                        <img class="imgLW" src="" alt="">
+                                    <div class="img" >
+                                    
                                     </div>
         
         
@@ -71,8 +71,8 @@
                                     <div class="valuePositionSA"></div>
                                 </div>
                                 <div class="info-joueur-comple-SA">
-                                    <div >
-                                        <img class="imgSA" src="" alt="">
+                                    <div class="img">
+                                       
                                     </div>
         
         
@@ -111,8 +111,8 @@
                                     <div class="valuePositionRW"></div>
                                 </div>
                                 <div class="info-joueur-comple-RW">
-                                    <div >
-                                        <img class="imgRW" src="" alt="">
+                                    <div class="img">
+                                        
                                     </div>
         
         
@@ -153,8 +153,8 @@
                                     <div class="valuePositionML"></div>
                                 </div>
                                 <div class="info-joueur-comple-ML">
-                                    <div >
-                                        <img class="imgML" src="" alt="">
+                                    <div class="img">
+                                        
                                     </div>
         
         
@@ -195,8 +195,8 @@
                                     <div class="valuePositionCM"></div>
                                 </div>
                                 <div class="info-joueur-comple-CM">
-                                    <div >
-                                        <img class="imgCM" src="" alt="">
+                                    <div class="img">
+                                        
                                     </div>
         
         
@@ -235,8 +235,8 @@
                                     <div class="valuePositionMR"></div>
                                 </div>
                                 <div class="info-joueur-comple-MR">
-                                    <div >
-                                        <img class="imgMR" src="" alt="">
+                                    <div class="img">
+                                        
                                     </div>
         
         
@@ -277,8 +277,8 @@
                                     <div class="valuePositionLB"></div>
                                 </div>
                                 <div class="info-joueur-comple-LB">
-                                    <div >
-                                        <img class="imgLB" src="" alt="">
+                                    <div class="img" >
+                                        
                                     </div>
         
         
@@ -318,8 +318,8 @@
                                     <div class="valuePositionCB2"></div>
                                 </div>
                                 <div class="info-joueur-comple-CB2">
-                                    <div class="imgCB2">
-                                        <img class="imgCB2" src="" alt="">
+                                    <div class="img">
+                                        
                                     </div>
         
         
@@ -358,8 +358,8 @@
                                     <div class="valuePositionCB1"></div>
                                 </div>
                                 <div class="info-joueur-comple-CB1">
-                                    <div >
-                                        <img  class="imgCB1" src="" alt="">
+                                    <div class="img" >
+
                                     </div>
         
         
@@ -399,8 +399,8 @@
                                 <div class="valuePositionRB"></div>
                             </div>
                             <div class="info-joueur-comple-RB">
-                                <div >
-                                    <img class="imgRB" src="" alt="">
+                                <div class="img">
+                                    
                                 </div>
     
     
@@ -443,8 +443,8 @@
                                 <div class="valuePositionGK"></div>
                             </div>
                             <div class="info-joueur-comple-GK">
-                                <div >
-                                   <img class="imgGK" src="" alt="">
+                                <div class="img" >
+                                   
                                 </div>
     
     
@@ -509,10 +509,12 @@
                     <div class="form-group">
                         <label for="Name-player">Nom du Joueur</label>
                         <input type="text" id="playerName" placeholder="Ex : Lionel Messi"  >
+                        <span id="nameError" class="hidden">Le nom est requis !</span>
                     </div>
                     <div class="form-group">
                         <label for="namePlayer">photo du Joueur</label>
                         <input type="url"  id="photoPlayer" placeholder="URL du Photo du joueur "  >
+                        <span id="photoError" class="hidden" >La photo est requise !</span>
                     </div>
 
 
@@ -520,7 +522,7 @@
                         <label for="playerPosition">Position</label>
                         <select id="PositionPlayer" class="PositionPlayerid validationSelect" >
                             <option value="">-- position --</option>
-                        <option value="GK">Gardien (GK)</option>
+                            <option value="GK">Gardien (GK)</option>
 
                             <option value="RB">Latéral Droit (RB)</option>
                             <option value="CB1">Défenseur Central (CB)</option>
@@ -534,6 +536,7 @@
                             <option value="RW">Ailier Droit (RW)</option>
                             <option value="SA">Attaquant (SA)</option>
                         </select>
+                        <span id="positionError" class="hidden" >La position est requise !</span>
                     </div>
                     <div class="form-group">
                         <label for="Nationality">Nationality</label>
@@ -553,6 +556,7 @@
                             <option value="Belgium">Belgium</option>
                             <option value="spain">spain</option>
                         </select>
+                        <span id="nationalityPlayerError" class="hidden" >La Nationality est requise !</span>
                     </div>
                     <div class="form-group">
 
