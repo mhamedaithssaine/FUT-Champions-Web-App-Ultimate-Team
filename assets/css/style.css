@@ -108,7 +108,8 @@ aside {
 }
 main {
   
-  
+  display: flex;
+  flex-direction: column;
   height: 100vh; 
   width: 100%;
   
@@ -144,6 +145,8 @@ main {
 
  .container-card{
  background: url(../img/télécharger.svg);
+ background-size: contain;
+ 
  background-repeat:no-repeat;
 height: 100%;
  
@@ -168,7 +171,7 @@ transform: scale(1.9);
 
   position: absolute;
   bottom:rem;
-  left: 11rem;
+  left: 7rem;
   
    
    
@@ -179,13 +182,13 @@ transform: scale(1.9);
  }
  .Milieu{
   display: grid;
-   grid-template-columns:repeat(3,1fr);
+   grid-template-columns:repeat(4,1fr);
    gap: 5rem;
   
    
  position: absolute;
 bottom:14rem;
-left: 11rem;
+left: 7rem;
 
  }
  .cardrush5{
@@ -199,8 +202,8 @@ left: 11rem;
 
    
    position: absolute;
-  bottom: 5rem;
-  left: 4.5rem;
+  bottom: 7.5rem;
+ 
   
  }
  .cardrush8{
@@ -219,8 +222,8 @@ left: 11rem;
  
   
   position: absolute;
-  bottom:-8rem;
-  left: 24.5rem;
+  top: 32rem;
+  left:19rem;
   
 
   
@@ -489,10 +492,10 @@ font-size: 0.3rem;
   left: 0.05rem;
 }
 
-/* === Styles par défaut (Desktop) === */
-/* Les styles actuels seront appliqués principalement pour les écrans larges (desktop). */
 
-/* === Pour les tablettes (768px à 1024px) === */
+
+
+/*  Pour les tablettes (768px à 1024px) */
 @media (max-width: 1024px) {
   #buttonKeeper {
     width: 15vh;
@@ -672,4 +675,31 @@ position: absolute;
   flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
+  
+  
+}
+
+/*ici c'est pour le changements de la formation 4-4-2 */
+
+.TroisQuatre{
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+.TroisQuatreMR{
+  position: relative;
+  top: 3rem;
+  right: 0.8rem;
+
+}
+
+.TroisQuatreSA{
+  position: relative;
+  left: 6rem;
+
+}
+.TroisQuatreRW{
+  position: relative;
+  left: 6.2rem;
+  top: 2rem;
 }

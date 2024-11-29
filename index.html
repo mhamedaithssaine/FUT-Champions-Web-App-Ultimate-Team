@@ -18,7 +18,7 @@
                 <h2 class="titre-List">Squad builder</h2>
             </div>
 
-            <div class="container-card">
+            <div  class="container-card masquerFormation">
 
                 <div class="Attaquant">
                     <div class="cardrush1" id="cardrush1lw">
@@ -142,6 +142,7 @@
                     </div>
                 </div>
                 <div class="Milieu">
+                    
                     <div class="cardrush4" id="cardrush4ml">
 
                         <button id="buttonKeeper"> <img id="imgHightWith" src="/assets/img/badge_total_rush.webp"
@@ -487,7 +488,7 @@
                     </div>
                 </div>
 
-
+              </div>
 
         </main>
 
@@ -495,9 +496,9 @@
         <aside>
             <div id="form-group1" class="form-group">
                 <label for="Formation">Formation</label>
-                <select name="Formation" id="formation">
+                <select name="Formation" id="formation" onchange="changerFormation()" >
                     <option value="4-3-3">4-3-3</option>
-                    <option value="4-3-3">4-4-2</option>
+                    <option value="4-4-2">4-4-2</option>
                 </select>
             </div>
             <button class="btn-ajouter">Ajouter un Joueur</button>
@@ -627,7 +628,7 @@
 
 
                     <button id="ajouterJoueur" onclick="updatePlayerCard()" type="button">Ajouter le Joueur</button>
-                    <button id="ajouterJoueurChangements" onclick="AjouterJoueurChangement()">ajouter en
+                    <button id="ajouterJoueurChangements" onclick="AjouterJoueurChangement()" type="button">ajouter en
                         Changements</button>
 
                 </form>

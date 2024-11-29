@@ -1,3 +1,6 @@
+
+
+
 // affiche et masquer de formulaire 
 const btnAjouter = document.querySelector('.btn-ajouter');
 const formulaire = document.querySelector('.nonn');
@@ -54,6 +57,17 @@ document.getElementById("PositionPlayer").addEventListener("change",function(){
 
 
 //fonction pour ajouter un joueur et recuperation des donner 
+
+
+// pour la verification de poste 
+let formation = {
+  GK: null, RB: null, LB: null, CB1: null, CB2: null,
+  SA: null, LW: null, RW: null, CM: null, MR: null, ML: null
+};
+
+// reservation de joueur que ilya pase de place 
+let reserve = [];
+
 function updatePlayerCard() {
 
   const playerName = document.getElementById('playerName').value;
@@ -76,7 +90,11 @@ function updatePlayerCard() {
   const reflexes = document.getElementById('reflexes').value;
   const speed = document.getElementById('speed').value;
   const positioning = document.getElementById('positioning').value;
+
+
 // objet pour local storage
+
+
   const lesDonnerDeJoueur = {
     playerName,
     photoPlayer,
@@ -102,7 +120,12 @@ function updatePlayerCard() {
     }
   };
   
-  localStorage.setItem(`player_${positionPlayer}`, JSON.stringify(lesDonnerDeJoueur))
+   // Verifier et ce que la position deja existe 
+   if (formation[positionPlayer] === null) {
+    
+    formation[positionPlayer] = lesDonnerDeJoueur;
+
+  localStorage.setItem(`player_${positionPlayer}`, JSON.stringify(lesDonnerDeJoueur));
 
 
 
@@ -133,21 +156,21 @@ function updatePlayerCard() {
   card.querySelector('.nameGK, .nameRB, .nameCB1, .nameCB2, .nameLB, .nameCM, .nameMR, .nameML, .nameLW, .nameRW, .nameSA').textContent = playerName;
   card.querySelector('.RatingGK, .RatingRB, .RatingCB1, .RatingCB2, .RatingLB, .RatingCM, .RatingMR, .RatingML, .RatingLW, .RatingRW, .RatingSA').textContent = rating;
   card.querySelector('.valuePositionGK, .valuePositionRB, .valuePositionCB1, .valuePositionCB2, .valuePositionLB, .valuePositionCM, .valuePositionMR, .valuePositionML, .valuePositionLW, .valuePositionRW, .valuePositionSA').textContent = positionPlayer;
-//photo de joueur
+
+
 
 const imgDiv = card.querySelector('.img');
 if (imgDiv) {
   imgDiv.innerHTML = `<img src="${photoPlayer}" alt="Photo de ${playerName}" style="width: 100%; height: auto;">`;
 }
 
-  //flag nationale
+  
   const flagDiv = card.querySelector('.DrapeuNational'); 
   if (flagDiv) {
     flagDiv.innerHTML = `<img src="${nationalFlag}" alt="Drapeau de ${nationality}" style="width: 100%; height: 100%;">`;
   }
   
 
-  //logo du club
   const logoDiv = card.querySelector('.logoClub'); 
   if (logoDiv) {
     logoDiv.innerHTML = `<img src="${logoClub}" alt="Logo du club ${club}" style="width: 100%; height: 100%;">`;
@@ -170,6 +193,11 @@ if (imgDiv) {
     statsContainer.querySelector('.defending').textContent = defending;
     statsContainer.querySelector('.physical').textContent = physical;
   }
+} else {
+    reserve.push(lesDonnerDeJoueur);
+    alert("Position deja existe. Le joueur est ajoute a la reserve.");
+  }
+
 }
 
 // fonction pour ajouter des joueur en changements 
@@ -237,10 +265,11 @@ if (imgDiv) {
 // }
 
 
+
 //fonction pour ajouter des joueur en changements 
 
-function AjouterJoueurChangement(e){
-  e.preventDefault();
+function AjouterJoueurChangement(){
+
 
   const playerName = document.getElementById('playerName').value;
   const photoPlayer = document.getElementById('photoPlayer').value;
@@ -359,3 +388,39 @@ if (positionPlayer === "GK") {
 }
 
 }
+
+// fonction pour changer le formation 
+
+function changerFormation() {
+  const formation = document.getElementById("formation").value;
+  const attaquantSection = document.querySelector(".Attaquant");
+  const milieuSection = document.querySelector(".Milieu");
+  const cartMrMilieu = document.getElementById('cardrush6mr');
+  const cartSaAttaquant =document.getElementById('cardrush2sa');
+  const cartRwAttaquant =document.getElementById('cardrush3rw');
+
+
+  if (formation === "4-4-2") {
+    const cardToMove = document.getElementById("cardrush1lw"); // Carte à déplacer (ex: LW)
+
+    if (cardToMove) {
+      milieuSection.appendChild(cardToMove); 
+      milieuSection.classList.add('TroisQuatre'); 
+      cartMrMilieu.classList.add('TroisQuatreMR'); 
+      cartSaAttaquant.classList.add('TroisQuatreSA'); 
+      cartRwAttaquant.classList.add('TroisQuatreRW');
+    }
+  } else if (formation === "4-3-3") {
+    const cardToMoveBack = document.getElementById("cardrush1lw"); // Carte à déplacer (ex: LW)
+
+    if (cardToMoveBack) {
+      attaquantSection.appendChild(cardToMoveBack);
+      milieuSection.classList.remove('TroisQuatre');
+      cartMrMilieu.classList.remove('TroisQuatreMR');
+      cartSaAttaquant.classList.remove('TroisQuatreSA');
+      cartRwAttaquant.classList.remove('TroisQuatreRW');   // Enlever la classe 'TroisQuatre'
+    }
+  }
+}
+
+
