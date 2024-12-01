@@ -494,12 +494,46 @@
 
 
         <aside>
+
+           
             <div id="form-group1" class="form-group">
+                <div class="reglationDeFormeFormation">
                 <label for="Formation">Formation</label>
                 <select name="Formation" id="formation" onchange="changerFormation()" >
                     <option value="4-3-3">4-3-3</option>
                     <option value="4-4-2">4-4-2</option>
                 </select>
+                <label for="Formation">Changer d'un joueur</label>
+                <select name="Les changement" id="changeDeJoueure" onchange="changeDeJoueure()" >
+                    <option value="">-- position --</option>
+                        <option value="GK">Gardien (GK)</option>
+                        <option value="RB">Latéral Droit (RB)</option>
+                        <option value="CB1">Défenseur Central (CB1)</option>
+                        <option value="CB2">Défenseur Central (CB2)</option>
+                        <option value="LB">Latéral Gauche (LB)</option>
+                        <option value="CM">Milieu Central (CM)</option>
+                        <option value="MR"> Milieu Droit (MR)</option>
+                        <option value="ML">Milieu Gauche (ML)</option>
+                        <option value="LW">Ailier Gauche (LW)</option>
+                        <option value="RW">Ailier Droit (RW)</option>
+                        <option value="SA">Attaquant (SA)</option>
+                </select>
+                <label for="Formation">Supprimer d'un joueur</label>
+                <select name="supprition" id="SupprimerJoueur" onchange="SupprimerJoueur()" >
+                    <option value="">-- position --</option>
+                        <option value="GK">Gardien (GK)</option>
+                        <option value="RB">Latéral Droit (RB)</option>
+                        <option value="CB1">Défenseur Central (CB1)</option>
+                        <option value="CB2">Défenseur Central (CB2)</option>
+                        <option value="LB">Latéral Gauche (LB)</option>
+                        <option value="CM">Milieu Central (CM)</option>
+                        <option value="MR"> Milieu Droit (MR)</option>
+                        <option value="ML">Milieu Gauche (ML)</option>
+                        <option value="LW">Ailier Gauche (LW)</option>
+                        <option value="RW">Ailier Droit (RW)</option>
+                        <option value="SA">Attaquant (SA)</option>
+                </select>
+            </div>
             </div>
             <button class="btn-ajouter">Ajouter un Joueur</button>
             <button class="btn-cancel">Annuler</button>
@@ -508,11 +542,13 @@
 
 
                 <form id="addPlayerForm">
-
+             
                     <div class="form-group">
                         <label for="Name-player">Nom du Joueur</label>
+                        
                         <input type="text" id="playerName" placeholder="Ex : Lionel Messi">
                         <span id="nameError" class="hidden">Le nom est requis !</span>
+                    
                     </div>
                     <div class="form-group">
                         <label for="namePlayer">photo du Joueur</label>
@@ -528,11 +564,11 @@
                             <option value="GK">Gardien (GK)</option>
 
                             <option value="RB">Latéral Droit (RB)</option>
-                            <option value="CB1">Défenseur Central (CB)</option>
-                            <option value="CB2">Défenseur Central (CB)</option>
+                            <option value="CB1">Défenseur Central (CB1)</option>
+                            <option value="CB2">Défenseur Central (CB2)</option>
                             <option value="LB">Latéral Gauche (LB)</option>
 
-                            <option value="CM">Milieu Central (CDM)</option>
+                            <option value="CM">Milieu Central (CM)</option>
                             <option value="MR"> Milieu Droit (MR)</option>
                             <option value="ML">Milieu Gauche (ML)</option>
                             <option value="LW">Ailier Gauche (LW)</option>
@@ -564,13 +600,13 @@
                     <div class="form-group">
 
                         <label for="flag">Drapeu equipe Nationa </label>
-                        <input type="url" class="vali" id="DrapeuNational" placeholder="URL du Drapeu equipe National">
-
+                        <input type="url" class="validationDrapeu" id="DrapeuNational" placeholder="URL du Drapeu equipe National">
+                        <span id="DrapeuPlayerError" class="hidden">Le Drapeu d'équipe est requise !</span>
                     </div>
 
                     <div class="form-group">
                         <label for="Club">Club</label>
-                        <select id="clubPlayer" class="validationSelect">
+                        <select id="clubPlayer" class="validationSelectClub">
                             <option value="">-- Club --</option>
                             <option value="Fc Barcelona">Fc Barcelona</option>
                             <option value="Inter Miami ">Inter Miami </option>
@@ -587,30 +623,50 @@
                             <option value="Atletico Madrid">Atletico Madrid</option>
                             <option value="Al Nassr ">Al Nassr </option>
                         </select>
+                        <span id="ClubPlayerError"  class="hidden"> Le Clube est requis !</span>
                     </div>
+               
+                
                     <div class="form-group">
 
                         <label for="flag">Logo de Club </label>
-                        <input type="url" id="logoClub" placeholder="URL du logo du club">
-
+                        <input type="url" id="logoClub" class="validationLogo" placeholder="URL du logo du club">
+                        <span id="LogoPlayerError" class="hidden"> Logo de club est requise !</span>
                     </div>
-
+                
                     <div class="form-group">
                         <label for="Note-player">Rating</label>
                         <input class="validationNombre" type="number" id="ratingPlayer" placeholder="Ex : 85">
+                        <span id="RatingPlayerError" class="hidden" > Rating est requise !</span>
                     </div>
-
+                
 
                     <div class="form-group" id="principalStatique">
                         <label for="statique-player">Statistiques</label>
+                    
                         <div>
-
-                            <input class="validationNombre" type="number" id="pace" placeholder="pace">
-                            <input class="validationNombre" type="number" id="shooting" placeholder="shooting">
-                            <input class="validationNombre" type="number" id="passing" placeholder="passing">
-                            <input class="validationNombre" type="number" id="dribbling" placeholder="dribbling">
-                            <input class="validationNombre" type="number" id="defending" placeholder="defending">
-                            <input class="validationNombre" type="number" id="physical" placeholder="physical">
+                            <input class="validationNombre" type="number" id="pace" placeholder="Ex:60">
+                            <span id="PacePlayerError" class="hidden" >Pace est requise !</span>
+                        </div>
+                        <div>
+                            <input class="validationNombre" type="number" id="shooting" placeholder="Ex:50">
+                            <span id="ShootingPlayerError" class="hidden" >shooting est requise !</span>
+                        </div>
+                        <div>
+                            <input class="validationNombre" type="number" id="passing" placeholder="Ex:40">
+                            <span id="PassingPlayerError" class="hidden" >Passing est requise !</span>
+                        </div>
+                        <div>
+                            <input class="validationNombre" type="number" id="dribbling" placeholder="Ex:30">
+                            <span id="DribblingPlayerError" class="hidden" >dribbling est requise !</span>
+                        </div>
+                        <div>
+                            <input class="validationNombre" type="number" id="defending" placeholder="Ex:20">
+                            <span id="DefendingPlayerError" class="hidden" >Defending est requise !</span>
+                        </div>
+                        <div>
+                            <input class="validationNombre" type="number" id="physical" placeholder="Ex:10">
+                            <span id="PhysicalPlayerError" class="hidden" >physical est requise !</span>
                         </div>
                     </div>
                     <br>
@@ -618,32 +674,38 @@
                         <label for="statique-player">Statique Pour Gardien</label>
                         <div class="form-group">
                             <input class="validationNombre" type="number" id="diving" placeholder="diving">
+                            <span id="DivingPlayerError" class="hidden">Diving est requise !</span>
                             <input class="validationNombre" type="number" id="handling" placeholder="handling">
+                            <span id="HandlingPlayerError" class="hidden">Handling est requise !</span>
                             <input class="validationNombre" type="number" id="kicking" placeholder="kicking">
+                            <span id="KickingPlayerError" class="hidden">Kicking est requise !</span>
                             <input class="validationNombre" type="number" id="reflexes" placeholder="reflexes">
+                            <span id="ReflexesPlayerError" class="hidden">Reflexes est requise !</span>
                             <input class="validationNombre" type="number" id="speed" placeholder="speed">
+                            <span id="SpeedPlayerError" class="hidden">Speed est requise !</span>
                             <input class="validationNombre" type="number" id="positioning" placeholder="positioning">
+                            <span id="PositiongPlayerError" class="hidden">Positioning est requise !</span>
                         </div>
                     </div>
 
-
-                    <button id="ajouterJoueur" onclick="updatePlayerCard()" type="button">Ajouter le Joueur</button>
-                    <button id="ajouterJoueurChangements" onclick="AjouterJoueurChangement()" type="button">ajouter en
+                    
+                    <button id="ajouterJoueur" onclick="AjouterJoueurTerrain()" type="button">terain</button>
+                  
+                    <button id="ajouterJoueurChangements" onclick="AjouterJoueurChangement()" type="button">
                         Changements</button>
-
+                    
                 </form>
-
-            </div>
+               
         </aside>
 
     </div>
-    <br>
-    <br><br><br>
+   
     <div class="Changements">
 
         <h3>Changements</h3>
 
         <div class="container-Changemants">
+            <div class="itemsChange" >
             <div class="cardrushChange1" id="cardrushChange1lw">
 
                 <button id="buttonKeeper">
@@ -1048,8 +1110,6 @@
                 </button>
 
             </div>
-
-
             <div class="cardrushChange11" id="cardrushChange11gk">
 
                 <button id="buttonKeeper">
@@ -1096,6 +1156,7 @@
                 </button>
             </div>
         </div>
+        </div>
 
     </div>
 
@@ -1104,5 +1165,4 @@
     </script>
 
 </body>
-
 </html>

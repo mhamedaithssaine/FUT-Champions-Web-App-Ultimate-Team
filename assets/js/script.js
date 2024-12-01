@@ -1,19 +1,14 @@
 
-
-
 // affiche et masquer de formulaire 
 const btnAjouter = document.querySelector('.btn-ajouter');
 const formulaire = document.querySelector('.nonn');
 const btnCancel = document.querySelector('.btn-cancel');
-
-
 btnAjouter.addEventListener('click', () => {
    afficheForme();
 
 });
 
 //pour annuller le forme
-
 btnCancel.addEventListener('click',()=>{
     formulaire.classList.remove('nonn1');
   formulaire.classList.add('nonn');
@@ -25,7 +20,6 @@ btnCancel.addEventListener('click',()=>{
 });
 
 //pour affichage de forme
-
 function afficheForme(){
   formulaire.classList.remove('nonn');
   formulaire.classList.add('nonn1');
@@ -35,13 +29,12 @@ function afficheForme(){
   btnAjouter.classList.add('btn1')
 
 }
-// affiche et masquer formulaire specifique en fonction de la position choisie
 
+// affiche et masquer formulaire specifique en fonction de la position choisie
 document.getElementById("PositionPlayer").addEventListener("change",function(){
   const selectPosition = this.value;
   const principalStatique = document.getElementById("principalStatique")
   const gardianStatique = document.getElementById("gkStatique")
-
   if(selectPosition === "GK"){
     gardianStatique.style.display="block";
     principalStatique.style.display="none";
@@ -53,23 +46,18 @@ document.getElementById("PositionPlayer").addEventListener("change",function(){
   // console.log(selectPosition);
 });
 
-
-
-
-//fonction pour ajouter un joueur et recuperation des donner 
-
-
 // pour la verification de poste 
 let formation = {
   GK: null, RB: null, LB: null, CB1: null, CB2: null,
   SA: null, LW: null, RW: null, CM: null, MR: null, ML: null
 };
 
-// reservation de joueur que ilya pase de place 
+// reservation de joueur lorsque deja ajouter en sa position 
 let reserve = [];
 
-function updatePlayerCard() {
-
+//fonction pour ajouter un joueur et recuperation des donner  
+function AjouterJoueurTerrain() {
+if(validationForme()){
   const playerName = document.getElementById('playerName').value;
   const photoPlayer = document.getElementById('photoPlayer').value;
   const positionPlayer = document.getElementById('PositionPlayer').value;
@@ -195,82 +183,203 @@ if (imgDiv) {
   }
 } else {
     reserve.push(lesDonnerDeJoueur);
-    alert("Position deja existe. Le joueur est ajoute a la reserve.");
+    alert("ajouter a liste de reserve")
   }
+}
+}
+
+// fonction de validation de formulaire 
+function validationForme(){
+  
+    let valid = true;
+
+    const playerName = document.getElementById('playerName').value;
+    const nameRegex = /^[a-zA-Z\s'-]{1,20}$/;
+    if (!nameRegex.test(playerName) || playerName === "") {
+       
+        document.getElementById("nameError").classList.remove("hidden");
+       valid =false;
+    } else {
+      document.getElementById("nameError").classList.add("hidden");
+    }
+    const photoPlayer = document.getElementById('photoPlayer').value;
+
+    const UrlRegex = /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([\/\w .-]*)*\/?$/;
+
+    if(!UrlRegex.test(photoPlayer) || photoPlayer===""){
+      document.getElementById("photoError").classList.remove("hidden");
+      valid= false;
+    } else{
+      document.getElementById("photoError").classList.add("hidden");
+    }
+
+   const positionPlayer = document.getElementById("PositionPlayer").value;
+   if(positionPlayer === ""){
+    document.getElementById("positionError").classList.remove("hidden");
+   valid=false;
+  }else{
+    document.getElementById("positionError").classList.add("hidden");
+  }
+
+  const nationalityPlayer = document.getElementById("nationalityPlayer").value;
+  if(nationalityPlayer === ""){
+    document.getElementById("nationalityPlayerError").classList.remove("hidden");
+    valid = false ;
+  }else {
+    document.getElementById("nationalityPlayerError").classList.add("hidden");
+  }
+
+  const DrapeuNational = document.getElementById("DrapeuNational").value;
+  if(!UrlRegex.test(DrapeuNational) || DrapeuNational === ""){
+    document.getElementById("DrapeuPlayerError").classList.remove("hidden");
+    valid = false ;
+  }else {
+    document.getElementById("DrapeuPlayerError").classList.add("hidden");
+  }
+
+  const clubPlayer = document.getElementById("clubPlayer").value;
+  if(clubPlayer === ""){
+    document.getElementById("ClubPlayerError").classList.remove("hidden");
+    valid = false ;
+  }else{
+    document.getElementById("ClubPlayerError").classList.add("hidden");
+  }
+  
+
+
+  const logoCLubPlayer = document.getElementById("logoClub").value;
+if(!UrlRegex.test(logoCLubPlayer) || logoCLubPlayer === ""){
+  document.getElementById("LogoPlayerError").classList.remove("hidden");
+  valid = false ;
+}else{
+  document.getElementById("LogoPlayerError").classList.add("hidden");
+}
+
+
+
+  const ratingPlayer= document.getElementById("ratingPlayer").value;
+  const NomberRegex = /^([0-9]){2}$/
+  if(!NomberRegex.test(ratingPlayer)){
+    document.getElementById("RatingPlayerError").classList.remove("hidden");
+  valid = false ;
+  }else{
+    document.getElementById("RatingPlayerError").classList.add("hidden");
+  }
+
+    const pace = document.getElementById("pace").value;
+  if(!NomberRegex.test(pace) || pace==="" ){
+    document.getElementById("PacePlayerError").classList.remove("hidden");
+  valid = false ;
+  }else{
+    document.getElementById("PacePlayerError").classList.add("hidden");
+  }
+
+
+  const shooting = document.getElementById("shooting").value;
+  if(!NomberRegex.test(shooting) || shooting==="" ){
+    document.getElementById("ShootingPlayerError").classList.remove("hidden");
+  valid = false ;
+  }else{
+    document.getElementById("ShootingPlayerError").classList.add("hidden");
+  }
+
+
+  const passing = document.getElementById("passing").value;
+  if(!NomberRegex.test(passing)|| passing===""){
+    document.getElementById("PassingPlayerError").classList.remove("hidden");
+  valid = false ;
+  }else{
+    document.getElementById("PassingPlayerError").classList.add("hidden");
+  }
+
+
+  const dribbling = document.getElementById("dribbling").value;
+  if(!NomberRegex.test(dribbling) || dribbling===""){
+    document.getElementById("DribblingPlayerError").classList.remove("hidden");
+  valid = false ;
+  }else{
+    document.getElementById("DribblingPlayerError").classList.add("hidden");
+  }
+
+
+  const defending = document.getElementById("defending").value;
+  if(!NomberRegex.test(defending) || defending===""){
+    document.getElementById("DefendingPlayerError").classList.remove("hidden");
+  valid = false ;
+  }else{
+    document.getElementById("DefendingPlayerError").classList.add("hidden");
+  }
+
+
+  const physical = document.getElementById("physical").value;
+  if(!NomberRegex.test(physical) || physical===""){
+    document.getElementById("PhysicalPlayerError").classList.remove("hidden");
+  valid = false ;
+  }else{
+    document.getElementById("PhysicalPlayerError").classList.add("hidden");
+  }
+  
+  const diving = document.getElementById("diving").value;
+  if(!NomberRegex.test(diving) || diving===""){
+    document.getElementById("DivingPlayerError").classList.remove("hidden");
+  valid = false ;
+  }else{
+    document.getElementById("DivingPlayerError").classList.add("hidden");
+  }
+
+  const handling = document.getElementById("handling").value;
+  if(!NomberRegex.test(handling) || handling===""){
+    document.getElementById("HandlingPlayerError").classList.remove("hidden");
+  valid = false ;
+  }else{
+    document.getElementById("HandlingPlayerError").classList.add("hidden");
+  }
+
+
+  const kicking = document.getElementById("kicking").value;
+  if(!NomberRegex.test(kicking) || kicking===""){
+    document.getElementById("KickingPlayerError").classList.remove("hidden");
+  valid = false ;
+  }else{
+    document.getElementById("KickingPlayerError").classList.add("hidden");
+  }
+
+  const reflexes = document.getElementById("reflexes").value;
+  if(!NomberRegex.test(reflexes) || reflexes===""){
+    document.getElementById("ReflexesPlayerError").classList.remove("hidden");
+  valid = false ;
+  }else{
+    document.getElementById("ReflexesPlayerError").classList.add("hidden");
+  }
+
+  const speed = document.getElementById("speed").value;
+  if(!NomberRegex.test(speed) || speed===""){
+    document.getElementById("SpeedPlayerError").classList.remove("hidden");
+  valid = false ;
+  }else{
+    document.getElementById("SpeedPlayerError").classList.add("hidden");
+  }
+
+  const positioning = document.getElementById("positioning").value;
+  if(!NomberRegex.test(positioning) || positioning===""){
+    document.getElementById("PositiongPlayerError").classList.remove("hidden");
+  valid = false ;
+  }else{
+    document.getElementById("PositiongPlayerError").classList.add("hidden");
+  }
+
+
+
+
+    return valid;
 
 }
 
+
 // fonction pour ajouter des joueur en changements 
-
-
-
-
-  
-
- 
-/******************************************************************************** pour le validation  */
-// fonction de validation de formulaire 
-// function validationForme(){
-
-//   function validation() {
-//     let valid = true;
-
-//     // nom du joueur
-//     const playerName = document.getElementById('playerName').value;
-//     if (playerName === "") {
-//         valid = false;
-//         document.getElementById("nameError").classList.remove("hidden");
-//     } else {
-//         document.getElementById("nameError").classList.add("hidden");
-//     }
-
-//     // la photo du joueur
-//     const photoPlayer = document.getElementById('photoPlayer').value;
-//     if (photoPlayer === "") {
-//         valid = false;
-//         document.getElementById("photoError").classList.remove("hidden");
-//     } else {
-//         document.getElementById("photoError").classList.add("hidden");
-//     }
-
-//     //  la position du joueur
-//     const positionPlayer = document.getElementById('PositionPlayer').value;
-//     if (positionPlayer === "") {
-//         valid = false;
-//         document.getElementById("positionError").classList.remove("hidden");
-//     } else {
-//         document.getElementById("positionError").classList.add("hidden");
-//     }
-
-//     // club du joueur
-//     const clubPlayer = document.getElementById('clubPlayer').value;
-//     if (clubPlayer === "") {
-//         valid = false;
-//         document.getElementById("clubError").classList.remove("hidden");
-//     } else {
-//         document.getElementById("clubError").classList.add("hidden");
-//     }
-
-//     //  rating du joueur
-//     const ratingPlayer = document.getElementById('ratingPlayer').value;
-//     if (ratingPlayer === "" || isNaN(ratingPlayer) || ratingPlayer < 1 || ratingPlayer > 100) {
-//         valid = false;
-//         document.getElementById("ratingError").classList.remove("hidden");
-//     } else {
-//         document.getElementById("ratingError").classList.add("hidden");
-//     }
-
-//     return valid;
-// }
-// }
-
-
-
-//fonction pour ajouter des joueur en changements 
-
 function AjouterJoueurChangement(){
-
-
+   
+if(validationForme()){ 
   const playerName = document.getElementById('playerName').value;
   const photoPlayer = document.getElementById('photoPlayer').value;
   const positionPlayer = document.getElementById('PositionPlayer').value;
@@ -325,7 +434,7 @@ localStorage.setItem(`player_${positionPlayer}`, JSON.stringify(lesDonnerDeJoueu
 let card;
 switch (positionPlayer) {
   case "GK": card = document.getElementById('cardrushChange11gk'); break;
-  case "RB": card = document.getElementById('cardrushCange10rb'); break;
+  case "RB": card = document.getElementById('cardrushChange10rb'); break;
   case "LB": card = document.getElementById('cardrushChange7lb'); break;
   case "CB1": card = document.getElementById('cardrushChange9cb1'); break;
   case "CB2": card = document.getElementById('cardrushChange8cb2'); break;
@@ -386,11 +495,10 @@ if (positionPlayer === "GK") {
   statsContainer.querySelector('.defending').textContent = defending;
   statsContainer.querySelector('.physical').textContent = physical;
 }
-
+}
 }
 
 // fonction pour changer le formation 
-
 function changerFormation() {
   const formation = document.getElementById("formation").value;
   const attaquantSection = document.querySelector(".Attaquant");
@@ -401,7 +509,7 @@ function changerFormation() {
 
 
   if (formation === "4-4-2") {
-    const cardToMove = document.getElementById("cardrush1lw"); // Carte à déplacer (ex: LW)
+    const cardToMove = document.getElementById("cardrush1lw"); 
 
     if (cardToMove) {
       milieuSection.appendChild(cardToMove); 
@@ -411,16 +519,179 @@ function changerFormation() {
       cartRwAttaquant.classList.add('TroisQuatreRW');
     }
   } else if (formation === "4-3-3") {
-    const cardToMoveBack = document.getElementById("cardrush1lw"); // Carte à déplacer (ex: LW)
+    const cardToMoveBack = document.getElementById("cardrush1lw");
 
     if (cardToMoveBack) {
       attaquantSection.appendChild(cardToMoveBack);
       milieuSection.classList.remove('TroisQuatre');
       cartMrMilieu.classList.remove('TroisQuatreMR');
       cartSaAttaquant.classList.remove('TroisQuatreSA');
-      cartRwAttaquant.classList.remove('TroisQuatreRW');   // Enlever la classe 'TroisQuatre'
+      cartRwAttaquant.classList.remove('TroisQuatreRW');   
     }
   }
 }
 
+// function pour change les joueures du terain a changement
+function changeDeJoueure() {
+  const selectElement = document.getElementById('changeDeJoueure');
+  const selectPosition = selectElement.value;
+
+  const goalkeeperSection = document.querySelector(".goalkeeper");
+  const defenseurSection = document.querySelector(".Defenseur");
+  const milieuSection = document.querySelector(".Milieu");
+  const attaquantSection = document.querySelector(".Attaquant");
+
+ // les joueur qui dans le terain
+const carteGK = document.getElementById('cardrush11gk'); 
+const carteRB = document.getElementById('cardrush10rb'); 
+const carteLB = document.getElementById('cardrush7lb'); 
+const carteCB1 = document.getElementById('cardrush9cb1'); 
+const carteCB2 = document.getElementById('cardrush8cb2'); 
+const carteSA = document.getElementById('cardrush2sa'); 
+const carteLW  = document.getElementById('cardrush1lw'); 
+const carteRW = document.getElementById('cardrush3rw'); 
+const carteCM  = document.getElementById('cardrush5cm'); 
+const carteMR = document.getElementById('cardrush6mr'); 
+const carteML  = document.getElementById('cardrush4ml'); 
+
+  const changementsSection = document.querySelector(".container-Changemants"); 
+
+  //   // les joueur qui dans le changements 
+const carteChangeGK = document.getElementById('cardrushChange11gk'); 
+const carteChangeRB = document.getElementById('cardrushChange10rb'); 
+const carteChangeLB = document.getElementById('cardrushChange7lb'); 
+const carteChangeCB1 = document.getElementById('cardrushChange9cb1'); 
+const carteChangeCB2 = document.getElementById('cardrushChange8cb2'); 
+const carteChangeSA = document.getElementById('cardrushChange2sa'); 
+const carteChangeLW = document.getElementById('cardrushChange1lw'); 
+const carteChangeRW = document.getElementById('cardrushChange3rw'); 
+const carteChangeCM = document.getElementById('cardrushChange5cm'); 
+const carteChangeMR = document.getElementById('cardrushChange6mr'); 
+const carteChangeML = document.getElementById('cardrushChange4ml');
+ 
+  if (selectPosition === "GK") {
+    const terrainCard = carteGK;
+    const changeCard = carteChangeGK;
+
+    
+    if (terrainCard.parentElement === goalkeeperSection) {
+      changementsSection.appendChild(terrainCard);
+      goalkeeperSection.appendChild(changeCard);
+    } else {
+      goalkeeperSection.appendChild(terrainCard);
+      changementsSection.appendChild(changeCard);
+    }
+  } else if (selectPosition === "RB") {
+    const terrainCard = carteRB;
+    const changeCard = carteChangeRB;
+
+    if (terrainCard.parentElement === defenseurSection) {
+      changementsSection.appendChild(terrainCard);
+      defenseurSection.appendChild(changeCard);
+    } else {
+      defenseurSection.appendChild(terrainCard);
+      changementsSection.appendChild(changeCard);
+    }
+  } else if (selectPosition === "LB") {
+    const terrainCard = carteLB;
+    const changeCard = carteChangeLB ;
+
+    if (terrainCard.parentElement === defenseurSection) {
+      changementsSection.appendChild(terrainCard);
+      defenseurSection.appendChild(changeCard);
+    } else {
+      defenseurSection.appendChild(terrainCard);
+      changementsSection.appendChild(changeCard);
+    }
+  } else if (selectPosition === "CB1") {
+    const terrainCard = carteCB1;
+    const changeCard = carteChangeCB1;
+
+    if (terrainCard.parentElement === defenseurSection) {
+      changementsSection.appendChild(terrainCard);
+      defenseurSection.appendChild(changeCard);
+    } else {
+      defenseurSection.appendChild(terrainCard);
+      changementsSection.appendChild(changeCard);
+    }
+  } else if (selectPosition === "CB2") {
+    const terrainCard = carteCB2;
+    const changeCard =carteChangeCB2;
+
+    if (terrainCard.parentElement === defenseurSection) {
+      changementsSection.appendChild(terrainCard);
+      defenseurSection.appendChild(changeCard);
+    } else {
+      defenseurSection.appendChild(terrainCard);
+      changementsSection.appendChild(changeCard);
+    }
+  } else if (selectPosition === "CM") {
+    const terrainCard = carteCM;
+    const changeCard =carteChangeCM;
+
+    if (terrainCard.parentElement === milieuSection) {
+      changementsSection.appendChild(terrainCard);
+      milieuSection.appendChild(changeCard);
+    } else {
+      milieuSection.appendChild(terrainCard);
+      changementsSection.appendChild(changeCard);
+    }
+  } else if (selectPosition === "MR") {
+    const terrainCard = carteMR;
+    const changeCard =carteChangeMR;
+
+    if (terrainCard.parentElement === milieuSection) {
+      changementsSection.appendChild(terrainCard);
+      milieuSection.appendChild(changeCard);
+    } else {
+      milieuSection.appendChild(terrainCard);
+      changementsSection.appendChild(changeCard);
+    }
+  } else if (selectPosition === "ML") {
+    const terrainCard = carteML;
+    const changeCard =carteChangeML;
+
+    if (terrainCard.parentElement === milieuSection) {
+      changementsSection.appendChild(terrainCard);
+      milieuSection.appendChild(changeCard);
+    } else {
+      milieuSection.appendChild(terrainCard);
+      changementsSection.appendChild(changeCard);
+    }
+  } else if (selectPosition === "LW") {
+    const terrainCard = carteLW;
+    const changeCard = carteChangeLW;
+
+    if (terrainCard.parentElement === attaquantSection) {
+      changementsSection.appendChild(terrainCard);
+      attaquantSection.appendChild(changeCard);
+    } else {
+      attaquantSection.appendChild(terrainCard);
+      changementsSection.appendChild(changeCard);
+    }
+  } else if (selectPosition === "RW") {
+    const terrainCard = carteRW;
+    const changeCard = carteChangeRW;
+
+    if (terrainCard.parentElement === attaquantSection) {
+      changementsSection.appendChild(terrainCard);
+      attaquantSection.appendChild(changeCard);
+    } else {
+      attaquantSection.appendChild(terrainCard);
+      changementsSection.appendChild(changeCard);
+    }
+  } else if (selectPosition === "SA") {
+    const terrainCard = carteSA;
+    const changeCard = carteChangeSA;
+
+    if (terrainCard.parentElement === attaquantSection) {
+      changementsSection.appendChild(terrainCard);
+      attaquantSection.appendChild(changeCard);
+    } else {
+      attaquantSection.appendChild(terrainCard);
+      changementsSection.appendChild(changeCard);
+    }
+  }
+  selectElement.value = "";
+}
 
