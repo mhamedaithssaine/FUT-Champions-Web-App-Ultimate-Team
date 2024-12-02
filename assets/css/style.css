@@ -151,7 +151,7 @@ main {
 
 .container-card {
   background: url(../img/télécharger.svg);
-  background-size: contain;
+  background-size: calc(45rem);
   background-repeat: no-repeat;
   height: 100%;
 
@@ -791,9 +791,3 @@ span {
   font-size: 10px;
 }
 
-@media (max-height:750px){
-.container-card{
-  position: relative;
-  right: 20rem;
-}
-}

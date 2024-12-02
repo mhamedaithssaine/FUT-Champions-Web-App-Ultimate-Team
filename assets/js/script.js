@@ -185,7 +185,9 @@ if (imgDiv) {
     reserve.push(lesDonnerDeJoueur);
     alert("ajouter a liste de reserve")
   }
-}
+} else {
+  console.log("validation echoue");
+} 
 }
 
 // fonction de validation de formulaire 
@@ -265,60 +267,9 @@ if(!UrlRegex.test(logoCLubPlayer) || logoCLubPlayer === ""){
   }else{
     document.getElementById("RatingPlayerError").classList.add("hidden");
   }
-
-    const pace = document.getElementById("pace").value;
-  if(!NomberRegex.test(pace) || pace==="" ){
-    document.getElementById("PacePlayerError").classList.remove("hidden");
-  valid = false ;
-  }else{
-    document.getElementById("PacePlayerError").classList.add("hidden");
-  }
-
-
-  const shooting = document.getElementById("shooting").value;
-  if(!NomberRegex.test(shooting) || shooting==="" ){
-    document.getElementById("ShootingPlayerError").classList.remove("hidden");
-  valid = false ;
-  }else{
-    document.getElementById("ShootingPlayerError").classList.add("hidden");
-  }
-
-
-  const passing = document.getElementById("passing").value;
-  if(!NomberRegex.test(passing)|| passing===""){
-    document.getElementById("PassingPlayerError").classList.remove("hidden");
-  valid = false ;
-  }else{
-    document.getElementById("PassingPlayerError").classList.add("hidden");
-  }
-
-
-  const dribbling = document.getElementById("dribbling").value;
-  if(!NomberRegex.test(dribbling) || dribbling===""){
-    document.getElementById("DribblingPlayerError").classList.remove("hidden");
-  valid = false ;
-  }else{
-    document.getElementById("DribblingPlayerError").classList.add("hidden");
-  }
-
-
-  const defending = document.getElementById("defending").value;
-  if(!NomberRegex.test(defending) || defending===""){
-    document.getElementById("DefendingPlayerError").classList.remove("hidden");
-  valid = false ;
-  }else{
-    document.getElementById("DefendingPlayerError").classList.add("hidden");
-  }
-
-
-  const physical = document.getElementById("physical").value;
-  if(!NomberRegex.test(physical) || physical===""){
-    document.getElementById("PhysicalPlayerError").classList.remove("hidden");
-  valid = false ;
-  }else{
-    document.getElementById("PhysicalPlayerError").classList.add("hidden");
-  }
-  
+ 
+   
+  if(positionPlayer === "GK"){ 
   const diving = document.getElementById("diving").value;
   if(!NomberRegex.test(diving) || diving===""){
     document.getElementById("DivingPlayerError").classList.remove("hidden");
@@ -367,7 +318,60 @@ if(!UrlRegex.test(logoCLubPlayer) || logoCLubPlayer === ""){
   }else{
     document.getElementById("PositiongPlayerError").classList.add("hidden");
   }
+} else {
+  
+  const pace = document.getElementById("pace").value;
+  if(!NomberRegex.test(pace) || pace==="" ){
+    document.getElementById("PacePlayerError").classList.remove("hidden");
+  valid = false ;
+  }else{
+    document.getElementById("PacePlayerError").classList.add("hidden");
+  }
 
+  const shooting = document.getElementById("shooting").value;
+  if(!NomberRegex.test(shooting) || shooting==="" ){
+    document.getElementById("ShootingPlayerError").classList.remove("hidden");
+  valid = false ;
+  }else{
+    document.getElementById("ShootingPlayerError").classList.add("hidden");
+  }
+
+
+  const passing = document.getElementById("passing").value;
+  if(!NomberRegex.test(passing)|| passing===""){
+    document.getElementById("PassingPlayerError").classList.remove("hidden");
+  valid = false ;
+  }else{
+    document.getElementById("PassingPlayerError").classList.add("hidden");
+  }
+
+
+  const dribbling = document.getElementById("dribbling").value;
+  if(!NomberRegex.test(dribbling) || dribbling===""){
+    document.getElementById("DribblingPlayerError").classList.remove("hidden");
+  valid = false ;
+  }else{
+    document.getElementById("DribblingPlayerError").classList.add("hidden");
+  }
+
+
+  const defending = document.getElementById("defending").value;
+  if(!NomberRegex.test(defending) || defending===""){
+    document.getElementById("DefendingPlayerError").classList.remove("hidden");
+  valid = false ;
+  }else{
+    document.getElementById("DefendingPlayerError").classList.add("hidden");
+  }
+
+
+  const physical = document.getElementById("physical").value;
+  if(!NomberRegex.test(physical) || physical===""){
+    document.getElementById("PhysicalPlayerError").classList.remove("hidden");
+  valid = false ;
+  }else{
+    document.getElementById("PhysicalPlayerError").classList.add("hidden");
+  }
+}
 
 
 
@@ -695,3 +699,65 @@ const carteChangeML = document.getElementById('cardrushChange4ml');
   selectElement.value = "";
 }
 
+////////////////////////////////////////////////////////////////////////////
+// function ModifierJoueur() {
+//   if(validationForme()){ 
+//   const position = document.getElementById('ModifierJoueur').value;
+
+//   const formulaire = document.getElementById('formulaireJoueur');
+//   if (!position) {
+//     formulaire.style.display = 'none';
+//     return;
+//   }
+//   const joueur = formation[position];
+//   if (joueur) {
+//     document.getElementById('playerName').value = joueur.playerName || '';
+//     document.getElementById('photoPlayer').value = joueur.photoPlayer || '';
+//     document.getElementById('nationalityPlayer').value = joueur.nationality || '';
+//     document.getElementById('DrapeuNational').value = joueur.nationalFlag || '';
+//     document.getElementById('clubPlayer').value = joueur.club || '';
+//     document.getElementById('logoClub').value = joueur.logoClub || '';
+//     document.getElementById('ratingPlayer').value = joueur.rating || '';
+//   } else {
+//     document.getElementById('playerName').value = '';
+//     document.getElementById('photoPlayer').value = '';
+//     document.getElementById('nationalityPlayer').value = '';
+//     document.getElementById('DrapeuNational').value = '';
+//     document.getElementById('clubPlayer').value = '';
+//     document.getElementById('logoClub').value = '';
+//     document.getElementById('ratingPlayer').value = '';
+//   }
+
+//   formulaire.style.display = 'block';
+//   }
+// }
+// function saveChanges() {
+//   if(validationForme()){ 
+//   const position = document.getElementById('ModifierJoueur').value;
+
+//   if (!position) {
+//     alert("Veuillez choisir une position.");
+//     return;
+//   }
+
+//   const playerName = document.getElementById('playerName').value;
+//   const photoPlayer = document.getElementById('photoPlayer').value;
+//   const nationality = document.getElementById('nationalityPlayer').value;
+//   const nationalFlag = document.getElementById('DrapeuNational').value;
+//   const club = document.getElementById('clubPlayer').value;
+//   const logoClub = document.getElementById('logoClub').value;
+//   const rating = document.getElementById('ratingPlayer').value;
+
+//   formation[position] = {
+//     playerName,
+//     photoPlayer,
+//     nationality,
+//     nationalFlag,
+//     club,
+//     logoClub,
+//     rating
+//   };
+
+//   alert("Les données du joueur ont été mises à jour avec succès !");
+// }
+// }

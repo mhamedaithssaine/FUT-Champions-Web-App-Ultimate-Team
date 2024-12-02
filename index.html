@@ -533,6 +533,45 @@
                         <option value="RW">Ailier Droit (RW)</option>
                         <option value="SA">Attaquant (SA)</option>
                 </select>
+                <label for="Formation">Modifier le joueur</label>
+                <select name="Modifier" id="ModifierJoueur" onchange="ModifierJoueur()" >
+                    <option value="">-- position --</option>
+                        <option value="GK">Gardien (GK)</option>
+                        <option value="RB">Latéral Droit (RB)</option>
+                        <option value="CB1">Défenseur Central (CB1)</option>
+                        <option value="CB2">Défenseur Central (CB2)</option>
+                        <option value="LB">Latéral Gauche (LB)</option>
+                        <option value="CM">Milieu Central (CM)</option>
+                        <option value="MR"> Milieu Droit (MR)</option>
+                        <option value="ML">Milieu Gauche (ML)</option>
+                        <option value="LW">Ailier Gauche (LW)</option>
+                        <option value="RW">Ailier Droit (RW)</option>
+                        <option value="SA">Attaquant (SA)</option>
+                </select>
+                <div id="formulaireJoueur" style="display: none;">
+                    <label for="playerName">Nom du joueur :</label>
+                    <input type="text" id="playerName" placeholder="Nom du joueur">
+                  
+                    <label for="photoPlayer">URL de la photo :</label>
+                    <input type="text" id="photoPlayer" placeholder="URL de la photo">
+                  
+                    <label for="nationalityPlayer">Nationalité :</label>
+                    <input type="text" id="nationalityPlayer" placeholder="Nationalité">
+                  
+                    <label for="DrapeuNational">URL du drapeau :</label>
+                    <input type="text" id="DrapeuNational" placeholder="URL du drapeau">
+                  
+                    <label for="clubPlayer">Club :</label>
+                    <input type="text" id="clubPlayer" placeholder="Club">
+                  
+                    <label for="logoClub">URL du logo du club :</label>
+                    <input type="text" id="logoClub" placeholder="URL du logo">
+                  
+                    <label for="ratingPlayer">Note :</label>
+                    <input type="number" id="ratingPlayer" placeholder="Note" min="0" max="99">
+                  <br>
+                    <button type="button" id="saveButton" onclick="saveChanges()">Sauvegarder les modifications</button>
+                  </div>
             </div>
             </div>
             <button class="btn-ajouter">Ajouter un Joueur</button>
@@ -693,7 +732,8 @@
                   
                     <button id="ajouterJoueurChangements" onclick="AjouterJoueurChangement()" type="button">
                         Changements</button>
-                    
+                        <button id="editPlayerButton">Modifier Joueur</button>
+
                 </form>
                
         </aside>
