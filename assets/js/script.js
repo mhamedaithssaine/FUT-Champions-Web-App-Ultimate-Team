@@ -699,65 +699,114 @@ const carteChangeML = document.getElementById('cardrushChange4ml');
   selectElement.value = "";
 }
 
-////////////////////////////////////////////////////////////////////////////
-// function ModifierJoueur() {
-//   if(validationForme()){ 
-//   const position = document.getElementById('ModifierJoueur').value;
+// pour recuperer les donner de joueur ajouter 
+function ModifierJoueur() {
+  if(validationForme()){ 
+  const position = document.getElementById('ModifierJoueur').value;
 
-//   const formulaire = document.getElementById('formulaireJoueur');
-//   if (!position) {
-//     formulaire.style.display = 'none';
-//     return;
-//   }
-//   const joueur = formation[position];
-//   if (joueur) {
-//     document.getElementById('playerName').value = joueur.playerName || '';
-//     document.getElementById('photoPlayer').value = joueur.photoPlayer || '';
-//     document.getElementById('nationalityPlayer').value = joueur.nationality || '';
-//     document.getElementById('DrapeuNational').value = joueur.nationalFlag || '';
-//     document.getElementById('clubPlayer').value = joueur.club || '';
-//     document.getElementById('logoClub').value = joueur.logoClub || '';
-//     document.getElementById('ratingPlayer').value = joueur.rating || '';
-//   } else {
-//     document.getElementById('playerName').value = '';
-//     document.getElementById('photoPlayer').value = '';
-//     document.getElementById('nationalityPlayer').value = '';
-//     document.getElementById('DrapeuNational').value = '';
-//     document.getElementById('clubPlayer').value = '';
-//     document.getElementById('logoClub').value = '';
-//     document.getElementById('ratingPlayer').value = '';
-//   }
+  const formulaire = document.getElementById('formulaireJoueur');
+  if (!position) {
+    formulaire.style.display = 'none';
+    return;
+  }
+  const joueur = formation[position];
+  if (joueur) {
+    
 
-//   formulaire.style.display = 'block';
-//   }
-// }
-// function saveChanges() {
-//   if(validationForme()){ 
-//   const position = document.getElementById('ModifierJoueur').value;
+    document.getElementById('playerModifierName').value = joueur.playerName ;
+    document.getElementById('photoModifierPlayer').value = joueur.photoPlayer ;
+    document.getElementById('nationalityModifierPlayer').value = joueur.nationality ;
+    document.getElementById('DrapeuModifireNational').value = joueur.nationalFlag ;
+    document.getElementById('clubModifierPlayer').value = joueur.club ;
+    document.getElementById('logoModifierClub').value = joueur.logoClub ;
+    document.getElementById('ratingModifierPlayer').value = joueur.rating ;
+  } else {
+    document.getElementById('playerName').value = '';
+    document.getElementById('photoPlayer').value = '';
+    document.getElementById('nationalityPlayer').value = '';
+    document.getElementById('DrapeuNational').value = '';
+    document.getElementById('clubPlayer').value = '';
+    document.getElementById('logoClub').value = '';
+    document.getElementById('ratingPlayer').value = '';
+  }
 
-//   if (!position) {
-//     alert("Veuillez choisir une position.");
-//     return;
-//   }
+  formulaire.style.display = 'block';
+  }
+}
 
-//   const playerName = document.getElementById('playerName').value;
-//   const photoPlayer = document.getElementById('photoPlayer').value;
-//   const nationality = document.getElementById('nationalityPlayer').value;
-//   const nationalFlag = document.getElementById('DrapeuNational').value;
-//   const club = document.getElementById('clubPlayer').value;
-//   const logoClub = document.getElementById('logoClub').value;
-//   const rating = document.getElementById('ratingPlayer').value;
+// pour modifier les donner 
+function ajouterLesModification() {
+  if(validationForme()){ 
+  const position = document.getElementById('ModifierJoueur').value;
 
-//   formation[position] = {
-//     playerName,
-//     photoPlayer,
-//     nationality,
-//     nationalFlag,
-//     club,
-//     logoClub,
-//     rating
-//   };
+  if (!position) {
+    alert("Veuillez choisir une position.");
+    return;
+  }
 
-//   alert("Les données du joueur ont été mises à jour avec succès !");
-// }
-// }
+  const playerName = document.getElementById('playerModifierName').value;
+  const photoPlayer = document.getElementById('photoModifierPlayer').value;
+  const nationality = document.getElementById('nationalityModifierPlayer').value;
+  const nationalFlag = document.getElementById('DrapeuModifireNational').value;
+  const club = document.getElementById('clubModifierPlayer').value;
+  const logoClub = document.getElementById('logoModifierClub').value;
+  const rating = document.getElementById('ratingModifierPlayer').value;
+
+  formation[position] = {
+    playerName,
+    photoPlayer,
+    nationality,
+    nationalFlag,
+    club,
+    logoClub,
+    rating
+  };
+
+  let card;
+  switch (position) {
+    case "GK": card = document.getElementById('cardrush11gk'); break;
+    case "RB": card = document.getElementById('cardrush10rb'); break;
+    case "LB": card = document.getElementById('cardrush7lb'); break;
+    case "CB1": card = document.getElementById('cardrush9cb1'); break;
+    case "CB2": card = document.getElementById('cardrush8cb2'); break;
+    case "SA": card = document.getElementById('cardrush2sa'); break;
+    case "LW": card = document.getElementById('cardrush1lw'); break;
+    case "RW": card = document.getElementById('cardrush3rw'); break;
+    case "CM": card = document.getElementById('cardrush5cm'); break;
+    case "MR": card = document.getElementById('cardrush6mr'); break;
+    case "ML": card = document.getElementById('cardrush4ml'); break;
+    default:
+      return;
+  }
+
+ 
+  card.querySelector('.nameGK, .nameRB, .nameCB1, .nameCB2, .nameLB, .nameCM, .nameMR, .nameML, .nameLW, .nameRW, .nameSA').textContent = playerName;
+  card.querySelector('.RatingGK, .RatingRB, .RatingCB1, .RatingCB2, .RatingLB, .RatingCM, .RatingMR, .RatingML, .RatingLW, .RatingRW, .RatingSA').textContent = rating;
+  card.querySelector('.valuePositionGK, .valuePositionRB, .valuePositionCB1, .valuePositionCB2, .valuePositionLB, .valuePositionCM, .valuePositionMR, .valuePositionML, .valuePositionLW, .valuePositionRW, .valuePositionSA').textContent = positionPlayer;
+
+
+
+const imgDiv = card.querySelector('.img');
+if (imgDiv) {
+  imgDiv.innerHTML = `<img src="${photoPlayer}" alt="Photo de ${playerName}" style="width: 100%; height: auto;">`;
+}
+
+  
+  const flagDiv = card.querySelector('.DrapeuNational'); 
+  if (flagDiv) {
+    flagDiv.innerHTML = `<img src="${nationalFlag}" alt="Drapeau de ${nationality}" style="width: 100%; height: 100%;">`;
+  }
+  
+
+  const logoDiv = card.querySelector('.logoClub'); 
+  if (logoDiv) {
+    logoDiv.innerHTML = `<img src="${logoClub}" alt="Logo du club ${club}" style="width: 100%; height: 100%;">`;
+  }
+ 
+
+  alert("Les données du joueur ont été mises à jour avec succès !");
+}
+
+}
+
+// pour supprimer
