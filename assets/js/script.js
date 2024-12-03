@@ -1,8 +1,20 @@
 
 // affiche et masquer de formulaire 
 const btnAjouter = document.querySelector('.btn-ajouter');
+const forme = document.getElementById('addPlayerForm');
 const formulaire = document.querySelector('.nonn');
 const btnCancel = document.querySelector('.btn-cancel');
+const buttonTerrain = document.querySelector('.ajouterJoueurTerrain');
+
+
+// une fois ajouter une joueur au terrain la forme ferme
+buttonTerrain.addEventListener('click',()=>{
+  if(validationForme()){
+    fermeForme();
+  }
+});
+
+
 btnAjouter.addEventListener('click', () => {
    afficheForme();
 
@@ -10,14 +22,19 @@ btnAjouter.addEventListener('click', () => {
 
 //pour annuller le forme
 btnCancel.addEventListener('click',()=>{
-    formulaire.classList.remove('nonn1');
+    fermeForme();
+
+});
+
+//pour ferme forme
+function fermeForme(){
+  formulaire.classList.remove('nonn1');
   formulaire.classList.add('nonn');
   btnCancel.classList.remove('btn-cancel1')
   btnCancel.classList.add('btn-cancel')
   btnAjouter.classList.remove('btn1')
   btnAjouter.classList.add('btn')
-
-});
+}
 
 //pour affichage de forme
 function afficheForme(){
@@ -113,7 +130,7 @@ if(validationForme()){
     
     formation[positionPlayer] = lesDonnerDeJoueur;
 
-  localStorage.setItem(`player_${positionPlayer}`, JSON.stringify(lesDonnerDeJoueur));
+ 
 
 
 
@@ -188,6 +205,9 @@ if (imgDiv) {
 } else {
   console.log("validation echoue");
 } 
+
+
+
 }
 
 // fonction de validation de formulaire 
@@ -737,8 +757,8 @@ function ModifierJoueur() {
 // pour modifier les donner 
 function ajouterLesModification() {
   if(validationForme()){ 
-  const position = document.getElementById('ModifierJoueur').value;
-
+  const selectPosition = document.getElementById('ModifierJoueur');
+  const position = selectPosition.value;
   if (!position) {
     alert("Veuillez choisir une position.");
     return;
@@ -806,7 +826,57 @@ if (imgDiv) {
 
   alert("Les données du joueur ont été mises à jour avec succès !");
 }
-
+    selectPosition.value=""
 }
 
-// pour supprimer
+// pour supprimer 
+function SupprimerJoueur() {
+ 
+  const selectElement = document.getElementById("SupprimerJoueur");
+  const position = selectElement.value; 
+
+  
+  if (!position) {
+    alert("Veuillez sélectionner une position.");
+    return;
+  }
+
+ 
+  formation[position] = null;
+
+
+  let card;
+  switch (position) {
+    case "GK": card = document.getElementById('cardrush11gk'); break;
+    case "RB": card = document.getElementById('cardrush10rb'); break;
+    case "LB": card = document.getElementById('cardrush7lb'); break;
+    case "CB1": card = document.getElementById('cardrush9cb1'); break;
+    case "CB2": card = document.getElementById('cardrush8cb2'); break;
+    case "SA": card = document.getElementById('cardrush2sa'); break;
+    case "LW": card = document.getElementById('cardrush1lw'); break;
+    case "RW": card = document.getElementById('cardrush3rw'); break;
+    case "CM": card = document.getElementById('cardrush5cm'); break;
+    case "MR": card = document.getElementById('cardrush6mr'); break;
+    case "ML": card = document.getElementById('cardrush4ml'); break;
+    default:
+      alert("Position non reconnue !");
+      return;
+  }
+
+
+  if (card) {
+    
+    card.querySelector('.nameGK, .nameRB, .nameCB1, .nameCB2, .nameLB, .nameCM, .nameMR, .nameML, .nameLW, .nameRW, .nameSA').textContent = '';
+    card.querySelector('.RatingGK, .RatingRB, .RatingCB1, .RatingCB2, .RatingLB, .RatingCM, .RatingMR, .RatingML, .RatingLW, .RatingRW, .RatingSA').textContent = '';
+    card.querySelector('.valuePositionGK, .valuePositionRB, .valuePositionCB1, .valuePositionCB2, .valuePositionLB, .valuePositionCM, .valuePositionMR, .valuePositionML, .valuePositionLW, .valuePositionRW, .valuePositionSA').textContent = '';
+    card.querySelector('.img').innerHTML = ''; 
+    card.querySelector('.DrapeuNational').innerHTML = ''; 
+    card.querySelector('.logoClub').innerHTML = ''; 
+    card.querySelector('.statiqueValueGK, .statiqueValueRB, .statiqueValueCB1, .statiqueValueCB2, .statiqueValueLB, .statiqueValueCM, .statiqueValueMR, .statiqueValueML, .statiqueValueLW, .statiqueValueRW, .statiqueValueSA').textContent = ''; 
+  }
+
+  alert(`Le joueur est supprimé de la position ${position}.`);
+}
+
+
+forme.reset();
