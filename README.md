@@ -6,24 +6,32 @@ Le tout est géré de manière interactive avec des interfaces utilisateur convi
 
 ## Fonctionnalités
 
-## # Sélection de la formation :
+# Sélection de la formation :
 Choisis parmi plusieurs formations prédéfinies pour organiser les joueurs sur le terrain.
 
-## ## Ajout de joueur :
+# Ajout de joueur :
 Ajoute des joueurs à différentes positions (gardien, défenseurs, milieux, attaquants).
 
-## ### Changement de joueur :
+# Changement de joueur :
 Ajoute ou remplace un joueur sur le terrain par un joueur de changement.
 
-## #### Suppression de joueur : 
+# Suppression de joueur : 
 Supprimer les donner d'un joueur par leur position.
 
-## ##### Modifier de joueur  :
+# lien vers mon site 
+https://mhamedaithssaine.github.io/FUT-Champions-Web-App-Ultimate-Team/
+
+# Modifier de joueur  :
 Modifier les donner d'un joueur par leur position.
 
 ### Technologies utilisées
-### # HTML5 : pour la structure de la page web.
-### ## CSS3 natif : pour le style et la mise en page.
-### ### JavaScript (JS) : pour la logique et les interactions de la page (ajout, suppression, mise à jour des joueurs).
-### #### Git et GitHub pour le versionnement et la gestion du code source.
-### ##### Trello pour la gestion de projet et la planification des tâches.
+# HTML5 
+pour la structure de la page web.
+# CSS3 natif
+pour le style et la mise en page.
+# JavaScript (JS) 
+pour la logique et les interactions de la page (ajout, suppression, mise à jour des joueurs).
+# Git et GitHub 
+pour le versionnement et la gestion du code source.
+# Trello
+pour la gestion de projet et la planification des tâches.
