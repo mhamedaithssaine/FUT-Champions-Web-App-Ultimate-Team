@@ -169,6 +169,7 @@ if (imgDiv) {
   imgDiv.innerHTML = `<img src="${photoPlayer}" alt="Photo de ${playerName}" style="width: 100%; height: auto;">`;
 }
 
+
   
   const flagDiv = card.querySelector('.DrapeuNational'); 
   if (flagDiv) {
@@ -203,7 +204,7 @@ if (imgDiv) {
     alert("ajouter a liste de reserve")
   }
 } else {
-  console.log("validation echoue");
+  alert("Remplir les champs qui vide");
 } 
 
 
@@ -875,7 +876,7 @@ function SupprimerJoueur() {
     card.querySelector('.statiqueValueGK, .statiqueValueRB, .statiqueValueCB1, .statiqueValueCB2, .statiqueValueLB, .statiqueValueCM, .statiqueValueMR, .statiqueValueML, .statiqueValueLW, .statiqueValueRW, .statiqueValueSA').textContent = ''; 
   }
 
-  alert(`Le joueur est supprimé de la position ${position}.`);
+ 
 }
 
 
