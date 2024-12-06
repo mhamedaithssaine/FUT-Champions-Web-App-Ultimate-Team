@@ -9,23 +9,21 @@ Le tout est géré de manière interactive avec des interfaces utilisateur convi
 ## # Sélection de la formation :
 Choisis parmi plusieurs formations prédéfinies pour organiser les joueurs sur le terrain.
 
-## ##Ajout de joueurs :
+## ## Ajout de joueur :
 Ajoute des joueurs à différentes positions (gardien, défenseurs, milieux, attaquants).
 
-## ###Changement de joueurs :
-Ajoute ou remplace un joueur sur le terrain par un joueur de la réserve.
+## ### Changement de joueur :
+Ajoute ou remplace un joueur sur le terrain par un joueur de changement.
 
-## ####Suppression de joueurs : 
-Supprime un joueur de la formation et place ce joueur dans la liste des remplaçants.
+## #### Suppression de joueur : 
+Supprimer les donner d'un joueur par leur position.
 
-## ##### Stockage des données localement :
-Les informations des joueurs (nom, position, photo, statistiques)
-sont stockées dans le stockage local du navigateur pour permettre une persistance des données pendant la session.
+## ##### Modifier de joueur  :
+Modifier les donner d'un joueur par leur position.
 
 ### Technologies utilisées
 ### # HTML5 : pour la structure de la page web.
 ### ## CSS3 natif : pour le style et la mise en page.
 ### ### JavaScript (JS) : pour la logique et les interactions de la page (ajout, suppression, mise à jour des joueurs).
-### #### Local Storage pour la gestion des données des joueurs entre les sessions.
-### ##### Git et GitHub pour le versionnement et la gestion du code source.
-### ######Trello pour la gestion de projet et la planification des tâches.
+### #### Git et GitHub pour le versionnement et la gestion du code source.
+### ##### Trello pour la gestion de projet et la planification des tâches.
