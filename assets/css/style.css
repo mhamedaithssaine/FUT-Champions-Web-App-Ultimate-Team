@@ -601,7 +601,7 @@ main {
 
 
 }
-/*  Pour  (1024px) */
+/*  responsive du (1024px) */
 @media (max-width: 1024px) {
   #buttonKeeper {
     width: 15vh;
