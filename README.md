@@ -6,22 +6,22 @@ Le tout est géré de manière interactive avec des interfaces utilisateur convi
 
 ## Fonctionnalités
 
-## # Sélection de la formation :
+# Sélection de la formation :
 Choisis parmi plusieurs formations prédéfinies pour organiser les joueurs sur le terrain.
 
-## ## Ajout de joueur :
+# Ajout de joueur :
 Ajoute des joueurs à différentes positions (gardien, défenseurs, milieux, attaquants).
 
-## ### Changement de joueur :
+# Changement de joueur :
 Ajoute ou remplace un joueur sur le terrain par un joueur de changement.
 
-## #### Suppression de joueur : 
+# Suppression de joueur : 
 Supprimer les donner d'un joueur par leur position.
 
 # lien vers mon site 
 https://mhamedaithssaine.github.io/FUT-Champions-Web-App-Ultimate-Team/
 
-## ##### Modifier de joueur  :
+# Modifier de joueur  :
 Modifier les donner d'un joueur par leur position.
 
 ### Technologies utilisées
