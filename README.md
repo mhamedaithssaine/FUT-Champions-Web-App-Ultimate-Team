@@ -23,11 +23,11 @@ Le tout est géré de manière interactive avec des interfaces utilisateur convi
 
 # Technologies utilisées
 
- HTML5 ``pour la structure de la page web.``
- CSS3 natif :``pour le style et la mise en page.``
- JavaScript (JS) :``pour la logique et les interactions de la page (ajout, suppression, mise à jour des joueurs).``
-Git et GitHub : ``pour le versionnement et la gestion du code source.``
- Trello : `` pour la gestion de projet et la planification des tâches.``
+ - HTML5 ``pour la structure de la page web.``
+- CSS3 natif :``pour le style et la mise en page.``
+- JavaScript (JS) :``pour la logique et les interactions de la page (ajout, suppression, mise à jour des joueurs).``
+- Git et GitHub : ``pour le versionnement et la gestion du code source.``
+- Trello : `` pour la gestion de projet et la planification des tâches.``
 
 # lien vers mon site 
 ``https://mhamedaithssaine.github.io/FUT-Champions-Web-App-Ultimate-Team/``
